@@ -10,7 +10,7 @@ function Categories({ items }) {
     <div className="categories">
       <ul>
         <li
-          className={activeItem === null && "active"}
+          className={activeItem === null ? "active" : ""}
           onClick={() => onSelectActive(null)}
         >
           Все
@@ -20,7 +20,7 @@ function Categories({ items }) {
             <li
               key={`${items} ${index}`}
               onClick={() => onSelectActive(index)}
-              className={activeItem === index && "active"}
+              className={activeItem === index ? "active" : ""}
             >
               {items}
             </li>
