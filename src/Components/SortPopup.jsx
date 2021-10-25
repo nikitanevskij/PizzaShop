@@ -1,11 +1,11 @@
 import React from "react";
 
-function SortPopup({ items }) {
+function SortPopup({ items, onClickSortType, activeSortType }) {
   const [visiblePopup, setVisiblePopus] = React.useState(false); //хранилище состояния сортировки открыто/закрыто
-  const [activeItem, setActiveItem] = React.useState(0); // хранилище состояния className:"active"
-
-  const onSelectActive = (id) => {
-    setActiveItem(id);
+  // const [activeItem, setActiveItem] = React.useState(0); // хранилище состояния className:"active"
+  const activeLabel = items.find((obj) => obj.type === activeSortType).name;
+  const onSelectActive = (type) => {
+    onClickSortType(type);
     setVisiblePopus(false);
   }; // функция для изменения состояни active и скрытия списка сортировки
 
@@ -41,7 +41,7 @@ function SortPopup({ items }) {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={toggleVisiblePopup}>{items[activeItem].name}</span>
+        <span onClick={toggleVisiblePopup}>{activeLabel}</span>
       </div>
 
       {visiblePopup && (
@@ -50,9 +50,9 @@ function SortPopup({ items }) {
             {items &&
               items.map((items, index) => (
                 <li
-                  className={activeItem === index ? "active" : ""}
+                  className={activeSortType === items.type ? "active" : ""}
                   key={`${items} ${index}`}
-                  onClick={() => onSelectActive(index)}
+                  onClick={() => onSelectActive(items)}
                 >
                   {items.name}
                 </li>
