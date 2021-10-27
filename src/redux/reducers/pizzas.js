@@ -15,7 +15,7 @@ const pizzas = (state = initialstate, action) => {
     case "SET_LOADED":
       return {
         ...state,
-        items: action.paylod,
+        // items: action.paylod,
         isLoaded: action.payload,
       };
 

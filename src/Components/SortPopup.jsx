@@ -15,7 +15,8 @@ function SortPopup({ items, onClickSortType, activeSortType }) {
 
   const sortRef = React.useRef(); // получаем ссылку на DOM-элемент
   const handleOutsideClick = (e) => {
-    if (!e.path.includes(sortRef.current)) {
+    const path = e.path || (e.composedPath && e.composedPath()); // исправляем баг на других браузерах
+    if (!path.includes(sortRef.current)) {
       setVisiblePopus(false);
     }
   }; //обрабатываем полученый масссив DOM эл. и ищем нужный нам
