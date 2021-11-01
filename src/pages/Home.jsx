@@ -40,6 +40,7 @@ function Home() {
   const onSelectSortType = React.useCallback((type) => {
     dispatch(setSortBy(type));
   }, []);
+
   const handleAddPizzaToCart = (obj) => {
     dispatch(addPizza(obj));
   };
@@ -60,12 +61,12 @@ function Home() {
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
         {isLoaded
-          ? pizzas.map((items) => (
+          ? pizzas.map((obj) => (
               <PizzaBlock
                 onClickAddPizza={handleAddPizzaToCart}
-                key={items.id}
-                addedCount={cartItems[items.id] && cartItems[items.id].length}
-                {...items}
+                key={obj.id}
+                addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
+                {...obj}
               />
             ))
           : Array(12)
