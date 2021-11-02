@@ -1,11 +1,11 @@
 import React from "react";
-import { Categories, SortPopup, PizzaBlock } from "../components";
+import { Categories, SortPopup, PizzaBlock } from "../component";
 import { useSelector, useDispatch } from "react-redux";
 import { setCategory, setSortBy } from "../redux/actions/filters";
 
 import { fetchPizzas } from "../redux/actions/pizzas";
 import { addPizza } from "../redux/actions/cart";
-import LoadingBlock from "../components/PizzaBlock/LoadingBlock";
+import LoadingBlock from "../component/PizzaBlock/LoadingBlock";
 
 const itemsCategory = [
   "Мясные",

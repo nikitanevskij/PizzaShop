@@ -10,7 +10,7 @@ import {
   minusCartItem,
 } from "../redux/actions/cart";
 import cartEmpty from "../assets/img/empty-cart.png";
-import Button from "../components/Button";
+import Button from "../component/Button";
 
 function Cart() {
   const dispatch = useDispatch();
